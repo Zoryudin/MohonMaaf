@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                
+                colors: {
+                    clifford: '#da373d',
+                }
+            }
+        }
+    }
+  </script>
+</head>
+<body class="bg-pink-300 relative">
+    <div class="flex relative align-middle w-[90%] h-[90%] my-10 mx-auto">
+        <img class="m-auto" src="/asset/surat.png" alt="">
+        <button class="bg-green-700 text-white px-2 py-1 absolute translate-x-10 top-[9rem] rounded-lg" id="show" onclick="modal()">Buka</button>
+    </div>
+    <div class="bg-white w-[90%] mx-auto flex flex-col invisible my-3" id="modal">
+        <button class="bg-red-500 p-3 m-2 rounded-full font-black text-white" id="close" onclick="modal()">Close</button>
+        <h1 class="text-2xl w-[100%] font-bold  text-center">Permintaan maaf</h1>
+        <div class= "w-[90%] mx-auto my-2 p-2 rounded-xl text-md">
+            Halo saya khoirudin widiyansa, meminta maaf karena status wa yang saya buat kemarin. Saya mengakui kesalahan saya karena membuat tuan putri sakit hati, saya tidak bermaksud membuat tuan putri sakit hati, saya bersedia menulis "saya kapok membuat tuan putri sakit hati" sebanyak 100x. 
+            <br>
+            <br>
+            <p id="test"></p> 
+        </div>
+    </div>
+
+    <script>
+        function modal(){
+            const modal = document.getElementById('modal');
+            const close = document.getElementById('close');
+            const showModal = document.getElementById('show');
+            const testElement = document.getElementById("test");
+
+            showModal.addEventListener('click', function() {
+                modal.classList.remove('invisible');
+                for (let i = 0; i < 100; i++) {
+                    testElement.innerHTML += '<p class="text-bold">Saya kapok membuat tuan putri sakit hati</p>';
+                }
+            });
+
+            close.addEventListener('click', function() {
+                modal.classList.add('invisible');
+                
+            });
+
+        }
+    </script>
+  
+</body>
+</html>
